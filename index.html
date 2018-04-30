@@ -308,7 +308,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/29/Hexo-github 搭建免费个人博客/" itemprop="url">Hexo + github 搭建免费个人博客</a></h1>
+                <a class="post-title-link" href="/2018/04/29/Hexo-github 搭建免费个人博客/" itemprop="url">Hexo + github 搭建个人博客</a></h1>
         
 
         <div class="post-meta">
@@ -359,20 +359,50 @@
 
       
         
-          <p><img src="https://note.youdao.com/yws/api/personal/file/3C8AF27394BC4037A2B861F845B6E9C9?method=download&amp;shareKey=b3e84e995c3a08fc4d6abe75914dd46f" alt="image"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用github pages服务搭建博客的好处有：</p>
-<ol>
-<li>全是静态文件，访问速度快；</li>
-<li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li>
-<li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</li>
+          
+            <p><img src="https://note.youdao.com/yws/api/personal/file/3C8AF27394BC4037A2B861F845B6E9C9?method=download&amp;shareKey=b3e84e995c3a08fc4d6abe75914dd46f" alt="image"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一直希望搭建一个自己的独立博客，在网上参考了很多文章后，觉得github+Hexo这种方式比较适合自己，通过github托管博客，不需要购买独立的服务器。写这篇文章的目的就是为了记录搭建博客的步骤，希望其他人在初次搭建时，我的这篇文章也能帮到别人，就像我当初网上到处百度别人的文章一样，本文就是将那些博文进行了一个整理吧。</p>
+<h1 id="需要准备的材料"><a href="#需要准备的材料" class="headerlink" title="需要准备的材料"></a>需要准备的材料</h1><ol>
+<li>git </li>
+<li>node.js 、npm</li>
+<li>注册github账号</li>
+<li>你自己注册的域名或者免费域名</li>
 </ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/29/Hexo-github 搭建免费个人博客/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h1 id="开始搭建博客"><a href="#开始搭建博客" class="headerlink" title="开始搭建博客"></a>开始搭建博客</h1><ol>
+<li><p>安装git，直接去官网下载最新版本即可，安装过程不需要任何设置，一路next到底。<br>git下载链接： <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a> 安装成功的标志是点开任何一个文件夹邮件可以看到git相关的选项。</p>
+</li>
+<li><p>安装node.js，同意官网下载最新版本，链接： <a href="https://nodejs.org/zh-cn//" target="_blank" rel="noopener">https://nodejs.org/zh-cn//</a></p>
+</li>
+<li><p>安装Hexo,在git程序里面运行命令行安装即可。<br>首先自己在电脑任意位置创建一个文件夹用来安装Hexo，然后用在git输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样所有需要安装的都已经完成了，接下来就是要部署自己的博客了。</p>
+<h1 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h1><h2 id="1-在github上创建仓库"><a href="#1-在github上创建仓库" class="headerlink" title="1.在github上创建仓库"></a>1.在github上创建仓库</h2><p>新建一个名为<code>你的用户名.github.io</code>的仓库，比如说，如果你的github用户名是kklt，那么你就新建<code>kklt.github.io</code>的仓库，这里必须使用你的用户名创建仓库。创建完成后你的网站访问地址就是<a href="http://kklt.github.io" target="_blank" rel="noopener">http://kklt.github.io</a> 。因此每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">2.</span><br><span class="line">3.</span><br></pre></td></tr></table></figure>
+<h2 id="2-绑定独立域名"><a href="#2-绑定独立域名" class="headerlink" title="2.绑定独立域名"></a>2.绑定独立域名</h2><p>比如你在阿里云或者腾讯云注册的自己的域名，还有很多人推荐的国外的<strong>godaddy</strong>。</p>
+<p>绑定了独立域名后，你原来的你的用户名.github.io并没有失效，只是会跳转到你的新域名。</p>
+<h2 id="3-配置SSH-keys"><a href="#3-配置SSH-keys" class="headerlink" title="3.配置SSH keys"></a>3.配置SSH keys</h2><p>为什么要配置这个呢？因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。</p>
+<p>用git bash执行如下命令：</p>
+<p><code>cd ~/. ssh            #检查本机已经存在的SSH密钥</code> </p>
+<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到<code>.ssh\id_rsa.pub</code>文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
+<p>测试是否成功:</p>
+<p><code>ssh -T git@github.com          #直接输入这句话不用任何修改</code></p>
+<p>如果提示这个信息说明已经成功。</p>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p><code>npm install -g hexo</code></p>
+<p>初始化</p>
+<p><code>cd</code></p>
+<p><code>hexo init</code></p>
+<p>执行上面代码后Hexo会自动下载一些文件到这个目录下，完成后目录结构如下：</p>
+<p><code>hexo g</code></p>
+<p><code>hexo c</code></p>
+<p>然后执行</p>
+<p><code>hexo s</code></p>
+<p>通过执行这个命令，可以开启本地预览服务，即可以在本地查看自己的博客，打开浏览器输入<a href="http://localhost:400即可看到自己的博客内容。" target="_blank" rel="noopener">http://localhost:400即可看到自己的博客内容。</a></p>
+<p>第一次初始化的时候hexo会帮助我们写好一篇名为Hellow World的文章，打开是这个样子：</p>
+<h2 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h2><h2 id="上传博客到github"><a href="#上传博客到github" class="headerlink" title="上传博客到github"></a>上传博客到github</h2><p>上传后，就可以通过外网访问自己的博客了。</p>
+
+          
         
       
     </div>
