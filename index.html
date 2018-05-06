@@ -479,6 +479,17 @@ node.js 、npm(官网下载，两个在同一个安装包)
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/30/Hellow-World/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/30/Hellow-World/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -805,6 +816,14 @@ node.js 、npm(官网下载，两个在同一个安装包)
 
   
 
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
 
 
 
@@ -830,6 +849,28 @@ node.js 、npm(官网下载，两个在同一个安装包)
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'juW0wXbRoKv39qgcGJLHFbnd-gzGzoHsz',
+        appKey: 'a8W09cIDelW3o6zNfuKDYXVT',
+        placeholder: 'Just go go',
+        avatar:'',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
