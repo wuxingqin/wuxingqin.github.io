@@ -181,7 +181,7 @@ th {
 }
 ::selection {
   background: #262a30;
-  color: #fff;
+  color: $white;
 }
 body {
   position: relative;
@@ -189,7 +189,7 @@ body {
   font-size: 14px;
   line-height: 2;
   color: $white;
-  background: black-deep;
+  background: #222;
 }
 @media (max-width: 767px) {
   body {
@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9edaff;
+  background: #fffe90;
 }
 .links-of-blogroll {
   font-size: 13px;
